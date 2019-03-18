@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col">
+    <app-entry (itemAdded)="onItemAdded($event)"></app-entry>
+  </div>
+  <div class="col">
+    <app-list title='Get This Stuff Done'
+              [items]="todoItems"></app-list>
+  </div>
+</div>
