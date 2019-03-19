@@ -8,6 +8,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CommunicationsModule } from './features/communications/communications.module';
+import { ReduxDemoComponent } from './components/redux-demo/redux-demo.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,15 @@ import { CommunicationsModule } from './features/communications/communications.m
     HeaderComponent,
     NavComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    ReduxDemoComponent
   ],
   imports: [
     BrowserModule,
     CommunicationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument() // <-- "can" be removed for production.
   ],
   providers: [],
   bootstrap: [AppComponent]
