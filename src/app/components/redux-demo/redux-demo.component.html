@@ -1,6 +1,7 @@
 <div>
   <input (click)="decrement()"
          type="button"
+         [disabled]="atStart$ | async"
          class="btn btn-primary btn-sm"
          value="-">
   <span>{{ count$ | async }}</span>
@@ -12,6 +13,25 @@
 <div>
   <input (click)="reset()"
          type="button"
+         [disabled]="atStart$ | async"
          class="btn btn-primary btn-sm"
          value="Reset">
+</div>
+
+<div>
+  <input type="button"
+         (click)="setCountBy(1)"
+         [disabled]="(countingBy$ | async) === 1"
+         class="btn btn-primary btn-sm"
+         value="Count By 1">
+  <input type="button"
+         (click)="setCountBy(3)"
+         [disabled]="(countingBy$ | async) === 3"
+         class="btn btn-primary btn-sm"
+         value="Count By 3">
+  <input type="button"
+         (click)="setCountBy(5)"
+         [disabled]="(countingBy$ | async) === 5"
+         class="btn btn-primary btn-sm"
+         value="Count By 5">
 </div>
